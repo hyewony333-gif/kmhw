@@ -57,6 +57,8 @@
   .hero img{object-position:50% 0}
   .hero img{width:100%;height:100%;object-fit:cover}
   .hero h1{position:absolute;inset:calc(min(13cqw,51px) - 3px) 0 auto;margin:0;text-align:center;font-family:"Italiana","Nanum Myeongjo",serif;font-weight:400;font-size:min(16.5cqw,64px);-webkit-text-stroke:.012em #1d1b19;line-height:.86;letter-spacing:-.01em;color:#1d1b19}
+  /* desktop: photo is shorter (420:620 box), so scale the title down to match */
+  @media (min-width:501px){.hero h1{font-size:50px;top:34px;-webkit-text-stroke:.012em #1d1b19}}
   .hero h1 .ch{display:inline-block;opacity:0;transform:translateY(8px);animation:chIn .35s ease-out forwards}
   @keyframes chIn{to{opacity:1;transform:none}}
   @media (prefers-reduced-motion:reduce){.hero h1 .ch{animation:none;opacity:1;transform:none}}
