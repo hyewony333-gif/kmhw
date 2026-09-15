@@ -56,9 +56,10 @@
   @media (max-width:500px){.hero{aspect-ratio:auto;height:100vh;height:100svh;min-height:min(150vw,645px)}}
   .hero img{object-position:50% 0}
   .hero img{width:100%;height:100%;object-fit:cover}
-  .hero h1{position:absolute;inset:3.5% 0 auto;margin:0;text-align:center;font-family:"Italiana","Nanum Myeongjo",serif;font-weight:400;font-size:clamp(41px,calc(15vw - 5px),61px);line-height:.86;letter-spacing:-.01em;color:#1d1b19;animation:heroIn 1.1s ease both}
-  @keyframes heroIn{from{opacity:.001;transform:translateY(14px)}to{opacity:1;transform:none}}
-  @media (prefers-reduced-motion:reduce){.hero h1{animation:none}}
+  .hero h1{position:absolute;inset:calc(3.5% + 3px) 0 auto;margin:0;text-align:center;font-family:"Italiana","Nanum Myeongjo",serif;font-weight:400;font-size:clamp(41px,calc(15vw - 5px),61px);line-height:.86;letter-spacing:-.01em;color:#1d1b19}
+  .hero h1 .ch{display:inline-block;opacity:0;transform:translateY(8px);animation:chIn .35s ease-out forwards}
+  @keyframes chIn{to{opacity:1;transform:none}}
+  @media (prefers-reduced-motion:reduce){.hero h1 .ch{animation:none;opacity:1;transform:none}}
   .scroll-cue{position:absolute;bottom:22px;left:50%;width:22px;height:22px;margin-left:-11px;border-right:1.5px solid rgba(255,255,255,.9);border-bottom:1.5px solid rgba(255,255,255,.9);transform:rotate(45deg);animation:cue 1.8s infinite}
   @keyframes cue{0%,100%{translate:0 0;opacity:.4}50%{translate:0 8px;opacity:1}}
 
@@ -203,7 +204,7 @@
   <!-- hero -->
   <header class="hero">
     <img src="img/7aa54651.jpg" alt="신랑 신부 웨딩 사진" fetchpriority="high">
-    <h1>our<br>wedding<br>day</h1>
+    <h1 id="heroTitle" aria-label="our wedding day">our<br>wedding<br>day</h1>
     <span class="scroll-cue" aria-hidden="true"></span>
   </header>
 
@@ -353,6 +354,12 @@
 <script>
 (function(){
   const $=id=>document.getElementById(id);
+
+  // ---- hero title: letters appear one by one ----
+  (function(){
+    const h=$('heroTitle');let n=0;
+    h.innerHTML=['our','wedding','day'].map(w=>'<span aria-hidden="true">'+[...w].map(c=>'<span class="ch" style="animation-delay:'+(0.25+0.07*n++).toFixed(2)+'s">'+c+'</span>').join('')+'</span>').join('<br>');
+  })();
 
   // ---- calendar ----
   const first=new Date(2026,10,1).getDay();let h='',d=1-first;
