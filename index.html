@@ -52,11 +52,11 @@
   .top .h{color:#E97F86;font-size:12px;margin:0 .3em}
 
   /* ---------- hero ---------- */
-  .hero{position:relative;aspect-ratio:420/620;max-width:100%}
+  .hero{position:relative;aspect-ratio:420/620;max-width:100%;container-type:inline-size}
   @media (max-width:500px){.hero{aspect-ratio:auto;height:100vh;height:100svh;min-height:min(150vw,645px)}}
   .hero img{object-position:50% 0}
   .hero img{width:100%;height:100%;object-fit:cover}
-  .hero h1{position:absolute;inset:calc(3.5% + 11px) 0 auto;margin:0;text-align:center;font-family:"Italiana","Nanum Myeongjo",serif;font-weight:400;font-size:clamp(44px,calc(15vw - 2px),64px);line-height:.86;letter-spacing:-.01em;color:#1d1b19}
+  .hero h1{position:absolute;inset:13cqw 0 auto;margin:0;text-align:center;font-family:"Italiana","Nanum Myeongjo",serif;font-weight:400;font-size:16.5cqw;line-height:.86;letter-spacing:-.01em;color:#1d1b19}
   .hero h1 .ch{display:inline-block;opacity:0;transform:translateY(8px);animation:chIn .35s ease-out forwards}
   @keyframes chIn{to{opacity:1;transform:none}}
   @media (prefers-reduced-motion:reduce){.hero h1 .ch{animation:none;opacity:1;transform:none}}
